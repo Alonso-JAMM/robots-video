@@ -1,0 +1,6 @@
+{
+    "ssl_port": 8094,
+    "port": 8094,
+    "key": "/var/www/easyrtc/easyrtc/privkey.pem",
+    "cert": "/var/www/easyrtc/easyrtc/fullchain.pem"
+}
