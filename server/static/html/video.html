@@ -4,12 +4,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/easyrtc/easyrtc.js"></script>
-    <script type="text/javascript" src="video.js"></script>
+    <script type="text/javascript" src="/js/video.js"></script>
+    <script src="/js/index.js"></script>
   </head>
   <body>
+  <div><h1>VIDEO</h1></div>
+  <div id="links"></div>
     <div id="video" style="position:relative;float:left;width:300px;display:none">
       <video id="caller" width="800" height="600"></video>
     </div>
     <div id="otherClients"></div>
   </body>
 </html>
+<script>
+    get_pages("video.html");
+</script>

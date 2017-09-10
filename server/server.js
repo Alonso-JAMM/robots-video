@@ -5,19 +5,31 @@ var serveStatic = require('serve-static');  // serve static files
 var socketIo = require("socket.io");        // web socket external module
 var easyrtc = require("../lib/easyrtc_server");               // EasyRTC external module
 var CONFIG = require('./config.json');
+var fs = require('fs');
 
 //  variables
 var port = CONFIG.port;
+var dir = './static/html/';
+
+
 
 // Set process name
 process.title = "node-easyrtc";
 
 // Setup and configure Express http server. Expect a subfolder called "static" to be the web root.
 var app = express();
-app.use(serveStatic('static', {'index': ['video.html']}));
+app.use(serveStatic('static', {'index': ['html/index.html']}));
 
 // Start Express http server
 var webServer = http.createServer(app).listen(port);
+
+// Sends the names of the files that are on the server
+app.get('/get_pages', function(req, res, next) {
+    fs.readdir(dir, function (err, files) {
+        console.log(files);
+        res.json({message: files});
+    });;
+});
 
 // Start Socket.io so it attaches itself to Express server
 var socketServer = socketIo.listen(webServer);
