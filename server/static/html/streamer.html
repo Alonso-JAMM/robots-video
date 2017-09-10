@@ -6,9 +6,13 @@
     <script type="text/javascript" src="/js/streamer.js"></script>
     <script src="/js/index.js"></script>
   </head>
-  <body onload="my_init()">
+  <body >
     <div><h1>STREAMER</h1></div>
     <div id="links"></div>
+    <div id="bot">
+      <input id="bot_name">
+      <button onclick="begin_stream()">Begin Stream</button>
+    </div>
     <video style="float:left" id="self" width="300" height="200" muted="muted"></video>
     <div id="otherClients"></div>
   </body>

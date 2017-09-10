@@ -5,7 +5,11 @@ var streamerName = "bot1";
 
 // Streamer just receives calls, it does not call other clients
 // Beggins connection
-function my_init() {
+function begin_stream() {
+  var name = document.getElementById("bot_name").value;
+  if(name != "") {
+    streamerName = name;
+  }
   easyrtc.enableAudio(enableAudio);
   easyrtc.enableVideoReceive(enableVideoReceive);
   easyrtc.setUsername(streamerName);

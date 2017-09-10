@@ -4,9 +4,7 @@ function get_pages(current){
         complete: function(data) {
             var pages = JSON.parse(data.responseText);
             var index = pages.message.indexOf(current);
-            console.log(pages);
             pages.message.splice(index, 1);
-            console.log(pages);
             for(i=0; i<pages.message.length; i++){
                 var direction = document.createElement("a");
                 var br = document.createElement("br");
