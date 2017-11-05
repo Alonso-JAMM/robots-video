@@ -11,7 +11,7 @@ var CONFIG = require('./config.json');
 var port = CONFIG.ssl_port;
 var key = CONFIG.key;
 var cert = CONFIG.cert;
-var dir = './static/html/';
+var dir = __dirname + '/static/html/';
 
 // Set process name
 process.title = "node-easyrtc";
@@ -37,6 +37,15 @@ app.get('/get_pages', function(req, res, next) {
         res.json({message: files});
     });;
 });
+
+app.get('/get_pages', function(req, res, next) {
+    fs.readdir(dir, function (err, files) {
+        console.log(files);
+        res.json({message: files});
+    });;
+});
+
+
 
 // Start Socket.io so it attaches itself to Express server
 var socketServer = socketIo.listen(webServer);
