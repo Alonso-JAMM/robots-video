@@ -18,7 +18,9 @@ process.title = "node-easyrtc";
 
 // Setup and configure Express http server. Expect a subfolder called "static" to be the web root.
 var app = express();
-app.use(serveStatic('static', {'index': ['html/index.html']}));
+app.use(express.static(__dirname + '/static/html'));
+app.use('/js', express.static(__dirname + '/static/js'));
+
 
 // Start Express http server on port 8094
 var webServer = https.createServer(
@@ -39,7 +41,6 @@ app.get('/get_pages', function(req, res, next) {
 // Start Socket.io so it attaches itself to Express server
 var socketServer = socketIo.listen(webServer);
 
-// easyrtc.setOption("logLevel", "debug");
 
 // Overriding the default easyrtcAuth listener, only so we can directly access its callback
 easyrtc.events.on("easyrtcAuth", function(socket, easyrtcid, msg, socketCallback, callback) {

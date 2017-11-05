@@ -9,7 +9,7 @@ function get_pages(current){
                 var direction = document.createElement("a");
                 var br = document.createElement("br");
                 var links = document.getElementById("links");
-                direction.setAttribute("href", "/html/" + pages.message[i]);
+                direction.setAttribute("href", pages.message[i]);
                 direction.innerHTML = pages.message[i];
                 links.appendChild(direction);
                 links.appendChild(br);
