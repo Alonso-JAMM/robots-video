@@ -38,14 +38,6 @@ app.get('/get_pages', function(req, res, next) {
     });;
 });
 
-app.get('/get_pages', function(req, res, next) {
-    fs.readdir(dir, function (err, files) {
-        console.log(files);
-        res.json({message: files});
-    });;
-});
-
-
 
 // Start Socket.io so it attaches itself to Express server
 var socketServer = socketIo.listen(webServer);
